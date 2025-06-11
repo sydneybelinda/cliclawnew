@@ -32,6 +32,9 @@ const HeaderBottom = props => {
         setResponsive(!responsive)
     }
     const router = useRouter();
+      if (router.isFallback) {
+    return <div>Loading...</div>
+  }
     return (
         <Fragment>
             {trigger && <Grid className="backdrop" onClick={clickHandler} ></Grid>}

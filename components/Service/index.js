@@ -31,7 +31,9 @@ const Service = ({ className = '' }) => {
             strength={200}>
             <Grid container spacing={4} className="container">
                 {services.map((service, i) => (
-                    <Grid item md={4} sm={6} xs={12} key={i}>
+                    <Grid
+                    size={{xs:12, sm:6, md:4}}
+                    key={i}>
                         <Grid className="serviceItem">
                             <Grid className="serviceIcon">
                                 <i className={service.icon}></i>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import React from 'react'
 import type { Metadata } from "next";
 import Head from 'next/head'
@@ -9,13 +9,14 @@ import HeroSlider from '../components/HeroSlider'
 import Service from '../components/Service'
 import About from '../components/About'
 import ServiceArea from '../components/ServiceArea'
-import Portfolio from '../components/Portfolio'
-import Testmonial from "../components/Testmonial";
+// import Portfolio from '../components/Portfolio'
+// import Testmonial from "../components/Testmonial";
 import ContactArea from '../components/ContactArea'
-import TeamMember from '../components/TeamMember'
-import CounterArea from '../components/CounterArea'
-import BlogArea from '../components/BlogArea'
+// import TeamMember from '../components/TeamMember'
+// import CounterArea from '../components/CounterArea'
+// import BlogArea from '../components/BlogArea'
 import NewsLetter from '../components/Newsletter'
+import db from "../utils/dbconnect"
 
 // import styles from "./page.module.css";
 
@@ -64,8 +65,12 @@ const portfolio = [
 
 export default async function Home() {
 
-     const data = await fetch('http://localhost:3000/api/practice')
-     const practices = await data.json()
+    //  const data = await fetch('http://127.0.0.1:3000/api/practice')
+    //  const practices = await data.json()
+
+    const practices = await db.all("SELECT * FROM practice");
+
+   
 
   return (
     <>

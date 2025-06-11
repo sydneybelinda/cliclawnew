@@ -40,8 +40,9 @@ const About = ({ subTitle, title, videoId, className = '', signature, pragraphs,
                     <Grid className="aboutContent">
                         {subTitle && <span className="subtitle">{subTitle}</span>}
                         <h2>{title}</h2>
-                        {pragraphs.map(text => (
-                            <p key={text}>{text}</p>
+                    
+                        {pragraphs.map((text,i) => (
+                            <p key={i}>{text}</p>
                         ))}
                         <Link href='/about'>
                             <Button className="btnStyle">More About Us..</Button>
