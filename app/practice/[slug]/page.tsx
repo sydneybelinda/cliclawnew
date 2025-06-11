@@ -78,6 +78,8 @@ import SingleContentArea from '../../../components/SingleContentArea'
 //     }
 // }
 
+
+
 interface Cat {
       id: string,
         title:string,
@@ -95,6 +97,7 @@ async function getCat(slug: string) {
   })
   const cat: Cat = await res.json()
   if (!cat) notFound()
+    // @ts-ignore
   return cat[0]
 }
 
