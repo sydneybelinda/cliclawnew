@@ -25,7 +25,7 @@ const HeaderTop = props => {
                    size={{sm:6, md:4, lg:5, xs:12}}
                 className="hright">
                     <ul className="headerContact">
-                        <li><PhoneAndroidIcon /><a href={"tel:+"+ phone.replaceAll(" ", "")}>{phone}</a></li>
+                        <li><PhoneAndroidIcon /><a href={"tel:+"+ phone.replace(/\s/g, '')}>{phone}</a></li>
                         <li><QueryBuilderIcon /> 9AM - 5PM</li>
                     </ul>
                 </Grid>
@@ -33,7 +33,7 @@ const HeaderTop = props => {
                     <Grid
                        size={{md:3, lg:2, md:3, xs:12}}
                     className="text-right">
-                        <Link className="btnStyle btnOutlined btnRadius" href={"tel:+"+ phone.replaceAll(" ", "")}>Call Us</Link>
+                        <Link className="btnStyle btnOutlined btnRadius" href={"tel:+"+ phone.replace(/\s/g, '')}>Call Us</Link>
                     </Grid>
                 {/* </Hidden> */}
             </Grid>
