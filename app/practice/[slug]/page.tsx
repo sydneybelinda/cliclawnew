@@ -165,7 +165,7 @@ export default async function ServiceDetails({
                     </Grid>
                     <Grid size={{md:8, xs:12}}>
                         <SingleContentArea
-                            image="/images/practice/3.jpg"
+                            // image="/images/practice/3.jpg"
                             avatar={true}
                             service={cat}
                         />
