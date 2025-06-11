@@ -1,95 +1,116 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import React from 'react'
+import type { Metadata } from "next";
+import Head from 'next/head'
 
-export default function Home() {
+import HeaderTop from '../components/HeaderTop'
+import HeaderBottom from '../components/HeaderBottom'
+import HeroSlider from '../components/HeroSlider'
+import Service from '../components/Service'
+import About from '../components/About'
+import ServiceArea from '../components/ServiceArea'
+import Portfolio from '../components/Portfolio'
+import Testmonial from "../components/Testmonial";
+import ContactArea from '../components/ContactArea'
+import TeamMember from '../components/TeamMember'
+import CounterArea from '../components/CounterArea'
+import BlogArea from '../components/BlogArea'
+import NewsLetter from '../components/Newsletter'
+
+// import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Cliclaw - Expert Lawyers in Sydney",
+  description: "Barristar – Lawyer and Attorney Next Js Template",
+};
+
+const aboutText = ['If your business is in need of help, you are seeking a trusted lawyer in Sydney or you are in trouble with Police - Local, District, Supreme and Federal Courts. It’s our business to help.', ' Cliclaw are the prefered Sydney Lawyers for many people.','If you are seeking lawyers in Sydney, Our expertise is assisting our clients win not only minor matters, but also complex cases. Our Sydney Lawyers provide sound, accurate, reliable, timely legal counsel and services, and are well known for being able to relay the legal world in plain language.','We are an honest, friendly and professional Sydney law firm servicing the greater Sydney area. Our goal is to build trust and long-term relationships with our clients. Victory is very important and we will fight for you as hard as we can within the bounds of the law.','We are confident working with both individual and business clients. Business clients include:','','Start-ups and new business ventures','Locally established businesses','International Business','','We are experienced Criminal lawyers in Sydney'
+]
+
+const portfolio = [
+    {
+        image: '/images/studies/1.jpg',
+        title: 'General Service',
+        subtitle: 'Corporate',
+        id: 1
+    },
+    {
+        image: '/images/studies/2.jpg',
+        title: 'Personal Issue',
+        subtitle: 'General',
+        id: 2
+    },
+    {
+        image: '/images/studies/3.jpg',
+        title: 'Business Accounting',
+        subtitle: 'Business',
+        id: 3
+    },
+    {
+        image: '/images/studies/4.jpg',
+        title: 'Accounting issue',
+        subtitle: 'Criminal',
+        id: 4
+    },
+    {
+        image: '/images/studies/5.jpg',
+        title: 'Business Accounting',
+        subtitle: 'Family Issue',
+        id: 5
+    }
+]
+
+
+
+export default async function Home() {
+
+     const data = await fetch('http://localhost:3000/api/practice')
+     const practices = await data.json()
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+        <Head>
+            <title>CLICLAW - Sydney Lawyers</title>
+        </Head>
+        <header className="headerArea">
+            <HeaderTop className="headerTop" />
+            <HeaderBottom className="headerBottomArea" practices={practices} />
+        </header>
+        <HeroSlider />
+        <Service className="bgColor" />
+        
+        <About
+              title="About Us"
+              images="/images/about/aoife.jpg"
+              signature="/images/about/1.png"
+              pragraphs={aboutText} subTitle={undefined} videoId={undefined}        />
+        <ServiceArea
+            title="How Can We Help You"
+            subTitle="Area Of Practice"
+            className="bgWhite"
+            practices={practices}
         />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        {/* <Portfolio
+              title="Our Resent Case Studies"
+              subTitle="Here Our Best Work"
+              portfolioItem={portfolio} fullWidth={undefined}        /> */}
+        
+        {/* <Testmonial /> */}
+        <ContactArea />
+        {/* <TeamMember
+            title="Qualified Attorneys "
+            subTitle="Meet Our Experts"
+            slider={true}
+        />
+        <CounterArea />
+        <BlogArea
+            title="Latest News"
+            subTitle="From Our Blog"
+        /> */}
+        <NewsLetter />
+    </>
+)
 }
+
+
+
