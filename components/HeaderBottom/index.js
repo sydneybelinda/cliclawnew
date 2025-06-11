@@ -32,9 +32,7 @@ const HeaderBottom = props => {
         setResponsive(!responsive)
     }
     const router = useRouter();
-      if (router.isFallback) {
-    return <div>Loading...</div>
-  }
+    
     return (
         <Fragment>
             {trigger && <Grid className="backdrop" onClick={clickHandler} ></Grid>}
@@ -48,7 +46,7 @@ const HeaderBottom = props => {
                     >
                         <Grid className="logo">
                             <Link href="/">
-                                <img src="/images/logo/logo.png" alt="logo" />
+                                <img src="/images/logo/logo.png" alt="Clic Law" />
                             </Link>
                         </Grid>
                     </Grid>
@@ -70,13 +68,7 @@ const HeaderBottom = props => {
                     ))}
                                 </ul>
                             </li>
-                            <li>
-                                <Link href='/case-stadies' className={router.pathname == "/case-stadies" || router.pathname == "/case-stadies/[id]" ? "active" : ""}>Cases</Link>
-                                <ul className="subMenu">
-                                    <li><Link href='/case-stadies' className={router.pathname == "/case-stadies" ? "active" : ""}>Cases</Link></li>
-                                    <li><Link href='/case-stadies/1' className={router.pathname == "/case-stadies/1" ? "active" : ""}>Cases single</Link></li>
-                                </ul>
-                            </li>
+
                             <li><Link href='/blog' className={router.pathname == "/blog" || router.pathname == "/blog/[id]" ? "active" : ""}>Blog</Link>
                                 <ul className="subMenu">
                                     <li><Link href='/blog' className={router.pathname == "/blog" ? "active" : ""}>Blog left sidebar</Link></li>
@@ -84,7 +76,7 @@ const HeaderBottom = props => {
                                     <li><Link href='/blog-fullwidth' className={router.pathname == "/blog-fullwidth" ? "active" : ""}>Blog FullWidth</Link></li>
                                 </ul>
                             </li>
-                            <li><Link href='/attorneys' className={router.pathname == "/attorneys" || router.pathname == "/attorneys/[id]" ? "active" : ""}>Attorneys</Link>
+                            <li><Link href='/team' className={router.pathname == "/team" || router.pathname == "/team/[id]" ? "active" : ""}>Our Team</Link>
                                 <ul className='subMenu'>
                                     <li><Link href='/attorneys' className={router.pathname == "/attorneys" ? "active" : ""}>Attorneys</Link></li>
                                     <li><Link href='/attorneys/1' className={router.pathname == "/attorneys/1" ? "active" : ""}>Attorneys single</Link></li>

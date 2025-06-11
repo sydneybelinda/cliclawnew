@@ -65,8 +65,6 @@ const portfolio = [
 
 export default async function Home() {
 
-    //  const data = await fetch('http://127.0.0.1:3000/api/practice')
-    //  const practices = await data.json()
 
     const practices = await db.all("SELECT * FROM practice");
 

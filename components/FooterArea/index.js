@@ -72,7 +72,7 @@ const FooterArea = () => {
                           size={{md:8, sm:10, xs:12}}
                     
                     >
-                        <span>Privacy Policy | © 2024 Barristar. All rights reserved</span>
+                        <span>Privacy Policy | © 2025 CLic Law. All rights reserved</span>
                     </Grid>
                     <Grid
                       size={{md:4, sm:2, xs:12}}>
