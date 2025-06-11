@@ -24,10 +24,10 @@ const footerLinks = [
     {
         title: 'Contact Us', menus: [
             { name: 'Head Office Address' },
-            { name: '121 King Street, Melbourne West,', },
+            { name: process.env.NEXT_PUBLIC_ADDRESS, },
             { name: 'Australia', },
-            { name: 'Phone: 888 123-4587', },
-            { name: 'Email: info@example.com', },
+            { name: 'Phone: ' + process.env.NEXT_PUBLIC_PHONE, },
+            { name: 'Email: ' + process.env.NEXT_PUBLIC_EMAIL, },
         ]
     },
 ]
