@@ -97,7 +97,7 @@ async function getCat(slug: string) {
   })
   const cat: Cat = await res.json()
   if (!cat) notFound()
-    // @ts-expect-error
+    // @ts-expect-error: TODO
   return cat[0]
 }
 
