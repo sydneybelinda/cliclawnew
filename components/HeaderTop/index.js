@@ -8,7 +8,7 @@ import Link from 'next/link';
 const HeaderTop = props => {
 
     const phone = process.env.NEXT_PUBLIC_PHONE
-    const phonetrim = process.env.NEXT_PUBLIC_PHONE.replace(/\s/g, '')
+    const phonetrim = process.env.NEXT_PUBLIC_PHONETRIM
 
     return (
         <Grid className={props.className}>                
